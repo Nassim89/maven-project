@@ -16,7 +16,7 @@ pipeline {
     stage('Compiling') {
             steps {
                 echo 'project compiling'
-                withMaven(maven : 'localMaven') {
+                withMaven(maven : 'LocalMaven') {
                     sh "mvn compile"
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
     stage('Build') {
             steps {
                 echo 'Project packaging : ${params.VERSION}'
-                withMaven(maven : 'localMaven') {
+                withMaven(maven : 'LocalMaven') {
                     sh "mvn -B -DskipTests clean install -Dproject.version=${params.VERSION} "
                 }
             }
@@ -49,7 +49,7 @@ pipeline {
     stage('Deploy') {
             steps {
                 echo 'Artefact deploy dans envirn : ${params.ENVIRONMENT}'
-                withMaven(maven : 'localMaven') {
+                withMaven(maven : 'LocalMaven') {
                    // sh "./deploy.sh --env = {params.ENVIRONMENT} --version =${params.VERSION} "
                 }
             }
