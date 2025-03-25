@@ -1,15 +1,15 @@
 pipeline {
     agent {label "master"}
     parameters {
-    string(name: 'VERSION', defaultValue : '1.0.0', description : 'Version du produit')
-    choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'production'], description: 'Choisissez l\'environnement')
-    }   
+        string(name: 'VERSION', defaultValue : '1.0.0', description : 'Version du produit')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'production'], description: 'Choisissez l\'environnement')
+    }
 
     stages {
         stage('Checkout codebase') {
             steps {
                 echo 'cloning project codebase '
-                git (url : 'https://github.com/nassim89/maven-project.git', 
+                git (url : 'https://github.com/Nassim89/maven-project.git', 
                 branch : 'master', credentialsId: 'cred4github')
             }
         }
