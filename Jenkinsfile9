@@ -24,7 +24,7 @@ pipeline {
     stage('Testing') {
             steps {
                 echo 'UnitTests running'
-                withMaven(maven : 'localMaven') {
+                withMaven(maven : 'LocalMaven') {
                     sh "mvn test"
                 }
             }
